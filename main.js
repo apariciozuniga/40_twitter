@@ -1,31 +1,38 @@
+
 var boton = document.getElementById("botoncito");
 boton.addEventListener("click",agregarLista); //agregarlista es una funcion
 
-function agregarLista(e){
-	var textArea = document.getElementById("textarea");
-	if (textArea == null){
-		alert("Ingresa Texto");
+function agregarLista(){
+	var textArea = document.getElementById("textarea").value;
+
+	if (textArea == 0){
+		alert("Ingresa Texto :!");
+		return false ;
 	}
-	else{
-		var textArea = document.getElementById("textarea");
-		var listaUl = document.getElementById("listaUl");
+	else{ 
+		var textArea =document.createTextNode(textArea);
+		var listUl = document.getElementById("listUl");
 		var lista = document.createElement("li");
 		var check = document.createElement("input");
 		check.setAttribute( "type", "checkbox");
 		var spanTrash = document.createElement("span");
-		spanTrash.classList.add("class","glyphicon glyphicon-trash");//llama al gliphycon
-		lista.appendChild(check);
-		lista.appendChild(textarea);
+		spanTrash.classList.add("fa", "fa-trash");//llama al gliphycon
+		lista.appendChild(check); //check agrelo a lista
+		lista.appendChild(textArea);//lista agregale textarea
 		lista.appendChild(spanTrash);
-		listaUl.appendChild(lista);
-	}
-}
+		listUl.appendChild(lista);//a lista agregale una lista
+		textarea.value=" ";
 
-function quitarLi(){
-	li=e.target.parentElement;
-	li.parentElement.removeChild(li);
-
-}
+		spanTrash.onclick=function(){
+			listUl.removeChild(lista);
+		}
+		check.onclick = function(){
+		lista.classList.add("lista");
+		};
+	
+	};
+	
+};
 
 
 

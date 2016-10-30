@@ -25,18 +25,24 @@
 	overflow-x: hidden;
 	overflow-y: scroll;
 }
-ul li:hover{
-	background-color: #f2f2f2;
 
-}
-li{
-	list-style: none;
+*{
+	font-family: Arial;
 }
 
 h1{
 	color: blue;
+
 }
-ul li.checket{
+ul li.lista{
 	text-decoration: line-through;
 
+}
+
+.fa-trash{
+	font-size: 110%;
+	
+}
+li{
+list-style-type: none;
 }
